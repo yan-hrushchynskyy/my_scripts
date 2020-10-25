@@ -11,14 +11,14 @@ arr2 = []
 arr3 = []
 
 #executing all opened violations
-req1 = nrql.query("SELECT * FROM AlertViolationsSample WHERE policy_name LIKE '%_%Lviv%' and policy_name not LIKE '%hlv%' and priority IN ('Critical', 'Warning') SINCE 1593039600 UNTIL 1593046800 LIMIT MAX")
+req1 = nrql.query("SELECT entity.name, id FROM AlertViolationsSample WHERE policy_name LIKE '%_%Lviv%' and policy_name not LIKE '%hlv%' and priority IN ('Critical', 'Warning') SINCE 6 hours ago LIMIT MAX")
 for i in req1['results']:
     arr1 = i['events']
 #executing all events from Ec2Instance provider with 'Agent disconnected' status
-req2 = nrql.query("SELECT * FROM InfrastructureEvent WHERE provider = 'Ec2Instance' and summary = 'Agent disconnected' AND hostname NOT LIKE '%hlv%' AND hostname NOT LIKE '%tst%' AND hostname NOT LIKE '%jenkins%' AND hostname NOT LIKE '%stg0%' SINCE 1593028800 UNTIL 1593046800 LIMIT MAX")
+req2 = nrql.query("SELECT entityName FROM InfrastructureEvent WHERE provider = 'Ec2Instance' and summary = 'Agent disconnected' AND environment = 'PRD0' SINCE 6 hours ago LIMIT MAX")
 for i in req2['results']:
     for a in i['events']:
-        arr2.append(a['hostname'])
+        arr2.append(a['entityName'])
 for i in arr2:
     for a in arr1:
             if i == a['entity.name']: #matching identic hostnames in 2 queries
