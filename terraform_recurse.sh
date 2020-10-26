@@ -1,3 +1,11 @@
+#---------------------------------------------------------------------------
+# Script allows to run recursively any terraform commands 
+#
+# v 1.0
+#
+# Made by Yan Hrushchynskyi 2020
+#---------------------------------------------------------------------------
+
 #!/bin/bash
 
 echo "Enter terraform command: "

@@ -1,10 +1,13 @@
-#!/usr/bin/env bash
-
-# This script will set definited CloudWatch Alarms for all ELBs in the region
+#---------------------------------------------------------------------------
+# This script will set definited CloudWatch Alarms for all ELBs in the region 
 # Requires the AWS CLI and jq and you must setup your ALARMACTION
+#
+# v 1.0
+#
+# Modified by Yan Hrushchynskyi 2020
+#---------------------------------------------------------------------------
 
-# Set Variables
-
+#!/usr/bin/env bash
 # AWS Region
 Region="needed_region"
 # SNS topic

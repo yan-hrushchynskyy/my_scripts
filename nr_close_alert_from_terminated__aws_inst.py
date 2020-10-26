@@ -1,3 +1,12 @@
+#---------------------------------------------------------------------------
+# Script allows to close violations in New Relic in case affected host was 
+# terminated in AWS
+#
+# v 2.0
+#
+# Made by Yan Hrushchynskyi 2020
+#---------------------------------------------------------------------------
+
 #!/usr/bin/env python
 
 from nrql.api import NRQL

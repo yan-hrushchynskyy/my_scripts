@@ -1,3 +1,12 @@
+#---------------------------------------------------------------------------
+# Script allows to gather values from New Relic queries and make a report in 
+# .xls format on your machine
+#
+# v 2.0
+#
+# Made by Yan Hrushchynskyi 2020
+#---------------------------------------------------------------------------
+
 #!/usr/local/bin/python3
 
 from nrql.api import NRQL
